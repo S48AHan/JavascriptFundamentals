@@ -1,7 +1,11 @@
+import { useState } from "react";
+import InputBox from "./Components/lifting_state_up/InputBox";
+import Preview from "./Components/lifting_state_up/Preview";
+import Component1 from "./Components/prop_drilling/Component1";
 import UserInfo from "./Components/UserInfo/UserInfo";
 
 function App() {
-
+  const [name, setName] = useState("");
 
   return (
     <>
@@ -9,7 +13,10 @@ function App() {
         <h1>Hi this is react!</h1>
       </div> */}
       {/* <Counter/> */}
-      <UserInfo/>
+      {/* <UserInfo/> */}
+      {/* <Component1/> */}
+         <InputBox name={name} onNameChange={setName}/>
+      <Preview name={name}/>
     </>
   );
 }
