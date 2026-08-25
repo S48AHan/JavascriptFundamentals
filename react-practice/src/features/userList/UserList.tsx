@@ -1,37 +1,33 @@
-import { useEffect, useState } from "react";
-import { fetchUsers } from "../../api/fetchUsers";
+import type { User } from "../../types/user";
 
-interface Address {
-
-  city: string;
-
+interface Props {
+  users: User[];
 }
+const UserList = ({ users }: Props) => {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        {users.map((user) => (
+          <tr key={user.id}>
+            <td>{user.id}</td>
+            <td>{user.name}</td>
+            <td>{user.email}</td>
+            <td>{user.phone}</td>
+            <td>{user.company.name}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+};
 
-
-interface User {
-
-  id: number;
-
-  name: string;
-
-  email: string;
-
-  address: Address;
-
-}
-
-export function UserList() {
-
-  const [users, setUsers] = useState<User[]>([]);
-
-
-  const [loading, setLoading] = useState<boolean>(false);
-
-
-  const [error, setError] = useState<string | null>(null);
-  
-useEffect(()=>{
-    const fetchUser = await fetchUsers(setUsers,setLoading,setError)
-},[])
-  return <div>Hello "/userList"!</div>
-}
+export default UserList;

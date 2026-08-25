@@ -1,7 +1,6 @@
 // let str = "saber";
 // console.log(str);
 
-
 // outer();
 // function outer() {
 //   console.log("Outer");
@@ -11,9 +10,6 @@
 //   }
 //   inner();
 // }
-
-
-
 
 // Function inside another function
 // Inner function remembers outer variables
@@ -25,7 +21,7 @@
 //   console.log("Outer");
 //   return function inner() {
 //     console.log(a);
-    
+
 //   console.log("Inner");
 //   };
 // }
@@ -33,12 +29,11 @@
 // const fn = outer();
 // fn(); // 10 will be printed because of closure
 
-
 // “A closure is a function that remembers variables from its outer scope even after the outer function has executed.”
 
 function outer() {
   let count = Number(prompt("Enter count:"));
-console.log("Outer counter: ",count)
+  console.log("Outer counter: ", count);
   return function inner() {
     count++;
     return count;
